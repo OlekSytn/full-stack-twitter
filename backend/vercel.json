@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "./src/.bin/www",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/users",
+      "methods": ["GET"],
+      "dest": "/api/users"
+    },
+    {
+      "src": "/.*",
+      "dest": "/"
+    }
+  ]
+}

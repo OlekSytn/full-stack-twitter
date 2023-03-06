@@ -1,0 +1,46 @@
+@startuml "Class Diagram"
+
+Title: Twitter Clone
+
+class User {
+  name: string
+  handle: string
+  email: string
+
+  profilePicture: string
+  bio: string
+  location: string
+  website: string
+  createdAt: Date
+  dateOfBirth: Date
+
+  followers: [User]
+  following: [User]
+  likedTweet: [Tweet]
+  
+  tweet(tweet: Tweet)
+  follow(user: User)
+  updateName(user: User)
+  createUser(user: User)
+  createTweet(tweet: Tweet)
+}
+
+class Tweet {
+  author: User
+  body: string
+  
+  createdAt: Date
+  originalTweet: Tweet
+
+  likes: [User]
+  replies: [Tweet]
+  retweets: [Tweet]
+  attachments: [Tweet]
+
+  create(tweet: Tweet)
+  tweet(user: User)
+  like(user: User, tweet: Tweet)
+  retweet(user: User, tweet: Tweet)
+}
+
+@enduml

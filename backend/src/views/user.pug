@@ -1,0 +1,14 @@
+extends layout
+block content
+  h2 User Detail Page
+  p #{user.name} #{user.handle}
+
+  h3 Tweet History
+  if user.tweets.length
+    ol
+      each tweet in user.tweets
+        li #{tweet.body} via #[b #{tweet.author}]
+  else
+    p No tweets
+  button
+    a(href="/users") Back Users Page
